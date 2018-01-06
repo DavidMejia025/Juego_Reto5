@@ -1,0 +1,10 @@
+#Cual es la extension de una hoja de calculo de excel
+$.xls
+#Matlab es un lenguage de programacion basado en que elementos de matematicas
+$matrices
+#En que lenguage se escriben las paginas web
+$HTML
+#Cual es la libreria mas utilizada de javascript
+$JQuery
+#Cual es la base de datos no relacional mas famosa
+$Mongo
