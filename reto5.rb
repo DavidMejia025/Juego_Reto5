@@ -32,22 +32,28 @@ end
 
 def pre_game()
 	puts "..........................."
-	puts ""
 	puts "Bienvenido al juego Reto 5"
 	puts "Estas preparado para jugar?"
-	puts ""
 	puts "..........................."
 	puts ""
+	puts "..........................."
 	puts "Quieres empezar ahora (Y/N): "
 	puts "..........................."
 	puts ""
-	start = gets.chomp
+	start = {gets.chomp}
 end
-
+def round(question)
+	puts " La pregunta es... "
+	puts "#{question}"
+	puts ""
+	puts "Ahora es tu turno:"
+end
 def post_game()
 	puts ""
+	puts "..........................."
 	puts "!MUY BIEN¡"
 	puts "Deseas volver a jugar (Y/N): "
+	puts "..........................."
 	puts ""
 	start = gets.chomp
 end
@@ -55,15 +61,6 @@ def the_end()
 	puts ""
 	puts ""
 	puts "Hasta pronto, te esperamos para que te vuelvas a retar en conocimiento de Web apps"
-		puts ""
-			puts ""
-				puts ""
-end
-def round(question)
-	puts " La pregunta es... "
-	puts "#{question}"
-	puts ""
-	puts "Ahora es tu turno:"
 end
 
 def running (play)
