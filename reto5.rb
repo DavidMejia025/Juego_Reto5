@@ -21,7 +21,7 @@ def find_question(text, array)
 		question = text[ind-1]
 		answer = text[ind]
 	end
-	[question, answer]
+	[question.delete!("#") , answer.delete!("$") ]
 end
 
 def is_value?(real_answer, player_answer)
@@ -31,35 +31,68 @@ def is_value?(real_answer, player_answer)
 end
 
 def pre_game()
+	puts "..........................."
+	puts ""
 	puts "Bienvenido al juego Reto 5"
 	puts "Estas preparado para jugar?"
+	puts ""
 	puts "..........................."
+	puts ""
+	puts "Quieres empezar ahora (Y/N): "
 	puts "..........................."
-	puts "Quieres empezar ahora Y/N: "
+	puts ""
 	start = gets.chomp
 end
 
+def post_game()
+	puts ""
+	puts "!MUY BIEN¡"
+	puts "Deseas volver a jugar (Y/N): "
+	puts ""
+	start = gets.chomp
+end
+def the_end()
+	puts ""
+	puts ""
+	puts "Hasta pronto, te esperamos para que te vuelvas a retar en conocimiento de Web apps"
+		puts ""
+			puts ""
+				puts ""
+end
 def round(question)
-	puts "* Ahora viene tu pregunta: "
-	puts "Cual es #{question}."
+	puts " La pregunta es... "
+	puts "#{question}"
+	puts ""
 	puts "Ahora es tu turno:"
 end
-#---------------- Game initialization --------------------
-def game()
-	start = pre_game()
-	if  start == "y" 
+
+def running (play)
+	round(play[0])
+	test_0 = play[1].gsub("\n","")
+	answer = gets.chomp
+	is_value?(test_0, answer)? finish=true : finish=false
+end	
+
+
+def game(start)
+		if  start == "y" 
 		finish = false
-		game = read_data()
+		play = read_data()
 		while finish == false
-			round(game[0])
-			answer = gets.chomp
-			is_value?(game[1], answer)? finish=true : finish=false
-			p finish
+			finish = running(play)		
 		end
+		start = post_game
+		if  start == "y"
+			game(start)
+		end 
 	else
-		game()
+		
 	end
 end
-game()
-read_data(1)
-p is_value?(1,2)
+
+#---------------- Game initialization --------------------
+def Reto5()
+	start = pre_game()
+	game(start)
+end
+Reto5()
